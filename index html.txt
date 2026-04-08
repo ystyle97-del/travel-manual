@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>【解説専用】トラベル・プロフェット</title>
+    <style>
+        :root {
+            --bg-color: #ebdcb2;
+            --text-color: #4a3b2c;
+            --gold: #d4af37;
+            --border-color: #b8860b;
+        }
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.1) 100%),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 2px, transparent 2px, transparent 4px);
+            color: var(--text-color);
+            font-family: "Georgia", "Yu Mincho", "Hiragino Mincho ProN", serif;
+            margin: 0; padding: 0; line-height: 1.6;
+        }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
+        h1 { text-align: center; font-size: 1.5rem; color: #5c4033; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+        h2 { color: #8b4513; font-size: 1.2rem; border-left: 5px solid var(--gold); padding-left: 10px; margin-top: 30px; }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 15px; border-radius: 8px; border: 1px solid var(--gold); margin-bottom: 20px;
+        }
+        .important-note {
+            background: #fff3cd; color: #856404; border: 2px solid #ffeeba;
+            padding: 10px; border-radius: 5px; font-weight: bold; text-align: center; margin: 10px 0;
+        }
+        .rule-box {
+            background: #fdf5e6; border: 1px solid #8b4513; padding: 15px; border-radius: 8px;
+        }
+        .icon-area { display: flex; gap: 10px; justify-content: center; margin: 15px 0; }
+        .btn-dummy {
+            width: 100%; padding: 12px; margin-top: 10px; border-radius: 8px;
+            font-weight: bold; text-align: center; border: 2px solid #ccc; background: #eee; color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>トラベル・プロフェット<br><small style="font-size:0.8rem;">～ 遊び方ガイド（閲覧専用） ～</small></h1>
+
+    <div class="important-note">
+        ⚠️ 本サイトは「説明専用」です<br>
+        <span style="font-size:0.8rem; font-weight:normal;">点数計算機能は代表者（1名）のアプリにのみ実装されています。計算は代表者の画面で行ってください。</span>
+    </div>
+
+    <div style="text-align:center; margin-bottom:20px;">
+        <button onclick="openVideo()" style="background:#5c4033; color:#f4e4bc; border:1px solid var(--border-color); padding:8px 15px; border-radius:20px; font-weight:bold; cursor:pointer;">📖 動画でルールを見る</button>
+    </div>
+
+    <h2>1. 交換フェイズ：予言の浄化</h2>
+    <div class="info-card">
+        手持ちのカードの中から達成が難しいものを1回だけ(何枚でも)捨てることができます。<br><br>
+        捨てたいカードを<b>”伏せたまま”</b>自分の前に並べます。1枚も捨てないことも可能です。
+    </div>
+
+    <h2>2. 交換フェイズ：苦難の回収</h2>
+    <div class="info-card">
+        他人が捨てたカードの中から欲しいものを回収できます。上限は<b>金1枚、銀2枚、銅3枚</b>です。<br><br>
+        <div class="important-note">回収したカードはまだ手札に入れず、自分の前に伏せたまま並べておくこと！</div>
+        <p style="font-size:0.9rem;">※1枚回収するごとに、代表者がそのプレイヤーに<b>1点</b>を加算します。</p>
+        <p style="font-size:0.8rem; color:#666;">予言の中身は見えません。属性アイコンだけを頼りにしてください。被ったら当人同士で交渉！</p>
+        <div class="icon-area">
+            <img src="https://i.postimg.cc/8CNHNQcv/muaikon.png" width="45" alt="目">
+            <img src="https://i.postimg.cc/Y2fKNgLz/kouaikon.png" width="45" alt="口">
+            <img src="https://i.postimg.cc/nzGRm4SX/shou-zuaikon.png" width="45" alt="手足">
+        </div>
+    </div>
+
+    <h2>3. 交換フェイズ：6枚への復帰</h2>
+    <div class="info-card">
+        手札を<b>金1枚、銀2枚、銅3枚 (計6枚)</b>に調整します。<br><br>
+        1. 回収したカードは<b>必ず</b>手札に入れます。<br>
+        2. 超過分は元の手札から捨てます。<br>
+        3. 足りない場合は山札から補充します。
+    </div>
+
+    <h2>4. プロフェット忘れと指摘</h2>
+    <div class="rule-box">
+        <p><b>【プロフェット！宣言】</b><br>予言達成時に宣言して開示。金(5点)、銀(2点)、銅(1点)がもらえます。</p>
+        <p style="border-top:1px dashed #8b4513; padding-top:10px;"><b>【宣言忘れ指摘】</b><br>宣言を忘れていることを誰かが指摘した場合、<b>指摘した人に1点</b>が加点されます。忘れた人は加点されません。</p>
+    </div>
+
+    <div style="margin-top:40px; text-align:center; font-size:0.8rem; color:#999;">
+        Travel Prophet Guide v1.0
+    </div>
+</div>
+
+<div id="video-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; flex-direction:column;">
+    <div style="width:90%; max-width:560px;">
+        <div style="position:relative; padding-top:56.25%;">
+            <iframe id="youtube-iframe" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <button onclick="closeVideo()" style="width:100%; margin-top:15px; padding:10px; background:#d32f2f; color:white; border:none; font-weight:bold; border-radius:5px; cursor:pointer;">閉じる</button>
+    </div>
+</div>
+
+<script>
+    function openVideo() {
+        document.getElementById('video-modal').style.display = 'flex';
+        document.getElementById('youtube-iframe').src = "https://www.youtube.com/embed/LDW3Ekt8Kr0?rel=0&autoplay=1";
+    }
+    function closeVideo() {
+        document.getElementById('video-modal').style.display = 'none';
+        document.getElementById('youtube-iframe').src = "";
+    }
+</script>
+</body>
+</html>
